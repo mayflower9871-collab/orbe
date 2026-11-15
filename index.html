@@ -108,7 +108,7 @@
             background: linear-gradient(to bottom, rgba(249, 247, 242, 0.4) 0%, rgba(249, 247, 242, 0.9) 70%, rgba(249, 247, 242, 1) 100%);
         }
 
-        /* Hide Scrollbar for Horizontal Scroll */
+        /* Hide Scrollbar */
         .hide-scrollbar {
             -ms-overflow-style: none;
             scrollbar-width: none;
@@ -153,7 +153,7 @@
         }
     </style>
 </head>
-<body class="bg-orbe-bg flex justify-center w-full min-h-screen font-sans">
+<body class="bg-orbe-bg flex justify-center w-full min-h-screen font-sans relative">
 
     <!-- Mobile Wrapper -->
     <div class="w-full max-w-[480px] min-h-screen relative pb-32 flex flex-col shadow-[0_0_40px_rgba(0,0,0,0.05)] bg-orbe-bg overflow-x-hidden">
@@ -474,6 +474,32 @@
 
                     <div class="w-full h-[1px] bg-orbe-gray"></div>
 
+                    <div class="flex items-start gap-4">
+                        <div class="mt-0.5 text-orbe-gold w-6 flex justify-center">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+                        </div>
+                        <div>
+                            <p class="text-[0.75rem] text-orbe-gold font-arial tracking-wider mb-1 font-semibold">FOOD & BEVERAGE</p>
+                            <p class="text-[0.95rem] font-bold text-orbe-text mb-1">웰컴 음료 및 프리미엄 다과</p>
+                            <p class="text-[0.9rem] font-light text-orbe-text/80 break-keep">커피, 티, 주스 등 취향에 맞는 음료 1잔과 가볍게 곁들일 수 있는 고급 디저트가 제공됩니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="w-full h-[1px] bg-orbe-gray"></div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="mt-0.5 text-orbe-gold w-6 flex justify-center">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+                        </div>
+                        <div>
+                            <p class="text-[0.75rem] text-orbe-gold font-arial tracking-wider mb-1 font-semibold">FOOD & BEVERAGE</p>
+                            <p class="text-[0.95rem] font-bold text-orbe-text mb-1">전문 바리스타의 고퀄리티 커피</p>
+                            <p class="text-[0.9rem] font-light text-orbe-text/80 break-keep">직접 공수한 원두로 전문 바리스타가 제조하는 프리미엄 커피(음료 택1)와 편안하게 즐길 수 있는 다과가 풍성하게 제공됩니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="w-full h-[1px] bg-orbe-gray"></div>
+
                     <div class="flex items-start gap-4 pb-2">
                         <div class="mt-0.5 text-orbe-gold w-6 flex justify-center">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
@@ -729,10 +755,6 @@
                                 <p class="font-bold text-orbe-text mb-1">5. 매너 있는 밋업을 위한 약속 (블랙리스트)</p>
                                 <p>타인에게 불쾌감을 주는 무례한 언행이나 파티 분위기를 심하게 저해하는 경우, 경고 후 즉시 귀가 조치(환불 불가)되며 블랙리스트에 등록되어 추후 참여가 제한됩니다. 공간 및 물품 파손 시 배상의 책임이 발생할 수 있습니다.</p>
                             </div>
-                            <div>
-                                <p class="font-bold text-orbe-text mb-1">6. 개인정보 보호</p>
-                                <p>수집된 개인정보는 매칭 및 행사 운영 목적으로만 사용되며, 행사 종료 후 안전하게 파기 및 관리됩니다.</p>
-                            </div>
                         </div>
 
                         <button type="button" class="w-full py-3 rounded-lg border border-orbe-gold bg-orbe-gold/5 text-sm font-bold text-orbe-gold hover:bg-orbe-gold/10 transition-colors">
@@ -749,9 +771,9 @@
                                 <input type="checkbox" class="w-4 h-4 rounded border-orbe-gray text-orbe-gold focus:ring-orbe-gold cursor-pointer accent-orbe-gold">
                                 <span>(필수) 개인정보 수집 및 이용에 동의</span>
                             </label>
-                            <button type="button" class="text-xs text-orbe-text/50 underline mt-0.5">자세히</button>
+                            <button type="button" onclick="openPrivacyModal()" class="text-xs text-orbe-text/50 underline mt-0.5 hover:text-orbe-text transition-colors">자세히</button>
                         </div>
-                        <p class="text-[0.7rem] text-orbe-text/50 mt-4 pl-6">신청 시 <a href="#" class="underline">이용약관</a>에 동의한 것으로 봅니다.</p>
+                        <p class="text-[0.7rem] text-orbe-text/50 mt-4 pl-6">신청 시 개인정보 처리방침에 동의한 것으로 봅니다.</p>
                     </div>
 
                     <!-- 제출 버튼 -->
@@ -778,8 +800,59 @@
         </div>
     </div>
 
-    <!-- Scroll Animation Script -->
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/50 p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-2xl w-full max-w-[440px] max-h-[80vh] flex flex-col overflow-hidden shadow-2xl transform translate-y-4 transition-transform duration-300">
+            <div class="p-5 border-b border-orbe-gray flex justify-between items-center bg-orbe-bg">
+                <h3 class="font-bold text-orbe-text text-lg">개인정보 처리방침</h3>
+                <button type="button" onclick="closePrivacyModal()" class="text-orbe-text/50 hover:text-orbe-text transition-colors">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="p-5 overflow-y-auto text-[0.8rem] text-orbe-text/80 leading-relaxed space-y-4">
+                <p>ORBE SOCIAL CLUB(이하 "회사")는 참가자의 개인정보를 소중하게 생각하며, 「개인정보 보호법」 등 관련 법령을 준수합니다.</p>
+                
+                <div>
+                    <p class="font-bold text-orbe-text mb-1">1. 수집하는 개인정보 항목</p>
+                    <ul class="list-disc pl-4 space-y-1">
+                        <li><span class="font-medium text-orbe-text">필수 항목:</span> 이름, 전화번호, 성별, 출생년도, 현재 직업, 매력 소개, 환불 계좌 정보(은행, 계좌번호, 예금주)</li>
+                        <li><span class="font-medium text-orbe-text">선택 항목:</span> 동반 참석자 정보</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <p class="font-bold text-orbe-text mb-1">2. 개인정보의 수집 및 이용 목적</p>
+                    <ul class="list-disc pl-4 space-y-1">
+                        <li>본인 확인 및 밋업 참석자 관리(신분 및 직장 검증)</li>
+                        <li>행사 운영 안내 및 공지사항 전달</li>
+                        <li>취소 및 환불 처리</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <p class="font-bold text-orbe-text mb-1">3. 개인정보의 제3자 제공 (매칭)</p>
+                    <p>회사는 원칙적으로 참가자의 개인정보를 외부에 제공하지 않습니다. 단, 서비스의 핵심 목적 달성을 위해 <strong>행사 종료 후 상호 호감이 일치(매칭)된 참가자에 한하여, 연락처 교환을 위해 상대방에게 이름과 전화번호가 제공</strong>됩니다.</p>
+                </div>
+
+                <div>
+                    <p class="font-bold text-orbe-text mb-1">4. 개인정보의 보유 및 이용 기간</p>
+                    <p>원칙적으로 개인정보 처리 목적이 달성된 후에는 지체 없이 파기합니다(행사 종료 후 3개월 내 파기). 단, 전자상거래법 등 관계 법령에 따라 대금 결제 및 환불, 분쟁 처리에 관한 기록은 5년간 보존됩니다.</p>
+                </div>
+
+                <div>
+                    <p class="font-bold text-orbe-text mb-1">5. 동의를 거부할 권리</p>
+                    <p>참가자는 개인정보 수집 및 이용, 제3자 제공에 대한 동의를 거부할 권리가 있습니다. 단, 필수 항목 및 제3자 제공(매칭)에 동의하지 않을 경우 밋업 참가가 제한됩니다.</p>
+                </div>
+            </div>
+            <div class="p-4 border-t border-orbe-gray bg-orbe-bg">
+                <button type="button" onclick="closePrivacyModal()" class="w-full py-3 bg-orbe-gold text-white font-bold rounded-xl shadow-md hover:bg-orbe-gold/90 transition-colors">확인했습니다</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Animation & Modal Script -->
     <script>
+        // Scroll Animation
         document.addEventListener('DOMContentLoaded', () => {
             const reveals = document.querySelectorAll('.reveal');
             
@@ -798,6 +871,27 @@
             window.addEventListener('scroll', revealOnScroll);
             revealOnScroll();
         });
+
+        // Privacy Modal Logic
+        const modal = document.getElementById('privacy-modal');
+        const modalContent = modal.querySelector('div');
+
+        function openPrivacyModal() {
+            modal.classList.remove('hidden');
+            // Trigger reflow for animation
+            void modal.offsetWidth;
+            modal.classList.remove('opacity-0');
+            modalContent.classList.remove('translate-y-4');
+        }
+
+        function closePrivacyModal() {
+            modal.classList.add('opacity-0');
+            modalContent.classList.add('translate-y-4');
+            // Wait for transition to finish before hiding
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
     </script>
 </body>
 </html>
