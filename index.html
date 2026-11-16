@@ -474,31 +474,25 @@
 
                     <div class="w-full h-[1px] bg-orbe-gray"></div>
 
-                    <div class="flex items-start gap-4">
-                        <div class="mt-0.5 text-orbe-gold w-6 flex justify-center">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
-                        </div>
-                        <div>
-                            <p class="text-[0.75rem] text-orbe-gold font-arial tracking-wider mb-1 font-semibold">FOOD & BEVERAGE</p>
-                            <p class="text-[0.95rem] font-bold text-orbe-text mb-1">웰컴 음료 및 프리미엄 다과</p>
-                            <p class="text-[0.9rem] font-light text-orbe-text/80 break-keep">커피, 티, 주스 등 취향에 맞는 음료 1잔과 가볍게 곁들일 수 있는 고급 디저트가 제공됩니다.</p>
-                        </div>
-                    </div>
-
-                    <div class="w-full h-[1px] bg-orbe-gray"></div>
+                    <!-- 삭제: 바리스타 커피 섹션 삭제됨 -->
 
                     <div class="flex items-start gap-4 pb-2">
-                        <div class="mt-0.5 text-orbe-gold w-6 flex justify-center">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        <div class="mt-0.5 text-orbe-gold w-6 flex justify-center text-[1.4rem] font-serif font-bold italic leading-none">
+                            $
                         </div>
                         <div class="w-full">
-                            <p class="text-[0.75rem] text-orbe-gold font-arial tracking-wider mb-1 font-semibold">PRICE</p>
-                            <div class="flex items-end gap-2 mb-1">
-                                <p class="text-[1.05rem] font-bold text-orbe-text">남 34,000원 <span class="text-[0.8rem] font-normal text-orbe-text/60">/ 여 30,400원</span></p>
+                            <p class="text-[0.75rem] text-orbe-gold font-arial tracking-wider mb-2 font-semibold">PRICE</p>
+                            <div class="flex items-end gap-1 mb-1.5">
+                                <p class="text-[1.3rem] font-bold text-orbe-text tracking-tight">남 34,000원</p>
+                                <p class="text-[1rem] font-normal text-[#888] mb-0.5 ml-0.5">/ 여 30,400원</p>
                             </div>
-                            <p class="text-[0.75rem] text-orbe-text/50 line-through">남 40,000원 / 여 38,000원</p>
+                            <!-- 가로선(취소선) 스타일 정확히 적용 -->
+                            <p class="text-[0.8rem] text-[#999] relative inline-block">
+                                남 40,000원 / 여 38,000원
+                                <span class="absolute top-1/2 left-0 w-full h-[1px] bg-[#999] transform -translate-y-1/2"></span>
+                            </p>
                             
-                            <div class="bg-orbe-gold/10 rounded border border-orbe-gold/20 p-2.5 mt-2">
+                            <div class="bg-orbe-gold/10 rounded border border-orbe-gold/20 p-2.5 mt-3">
                                 <p class="text-[0.75rem] font-bold text-orbe-gold text-center">🎉 얼리버드 할인 적용 중</p>
                             </div>
                         </div>
@@ -526,11 +520,11 @@
                             <div class="flex justify-between items-center mb-5">
                                 <h4 class="font-bold text-[1.1rem] text-orbe-text">2026년 12월</h4>
                                 <div class="flex gap-2">
-                                    <button type="button" class="w-8 h-8 rounded-full border border-orbe-gray flex items-center justify-center text-orbe-text/30 bg-white">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                                    <button type="button" class="w-8 h-8 rounded-full border border-orbe-gray flex items-center justify-center text-orbe-text/30 bg-white hover:bg-gray-50 transition-colors">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
                                     </button>
-                                    <button type="button" class="w-8 h-8 rounded-full border border-orbe-gray flex items-center justify-center text-orbe-text/30 bg-white">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                                    <button type="button" class="w-8 h-8 rounded-full border border-orbe-gray flex items-center justify-center text-orbe-text/30 bg-white hover:bg-gray-50 transition-colors">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
                                     </button>
                                 </div>
                             </div>
@@ -538,115 +532,115 @@
                             <!-- 요일 헤더 -->
                             <div class="grid grid-cols-7 text-center text-[0.8rem] font-bold mb-4">
                                 <div class="text-[#E03131]">일</div>
-                                <div class="text-[#999999]">월</div>
-                                <div class="text-[#999999]">화</div>
-                                <div class="text-[#999999]">수</div>
-                                <div class="text-[#999999]">목</div>
-                                <div class="text-[#999999]">금</div>
+                                <div class="text-[#999999] font-medium">월</div>
+                                <div class="text-[#999999] font-medium">화</div>
+                                <div class="text-[#999999] font-medium">수</div>
+                                <div class="text-[#999999] font-medium">목</div>
+                                <div class="text-orbe-text">금</div>
                                 <div class="text-[#1C7ED6]">토</div>
                             </div>
                             
                             <!-- 날짜 그리드 -->
-                            <div class="grid grid-cols-7 text-center text-[0.9rem] gap-y-4 font-medium">
+                            <div class="grid grid-cols-7 text-center text-[0.95rem] gap-y-4 font-bold" id="calendar-grid">
                                 <div></div>
                                 <div></div>
-                                <div class="text-[#D1D1D1] flex items-center justify-center h-10">1</div>
-                                <div class="text-[#D1D1D1] flex items-center justify-center h-10">2</div>
-                                <div class="text-[#D1D1D1] flex items-center justify-center h-10">3</div>
+                                <div class="text-[#D1D1D1] font-medium flex items-center justify-center h-10">1</div>
+                                <div class="text-[#D1D1D1] font-medium flex items-center justify-center h-10">2</div>
+                                <div class="text-[#D1D1D1] font-medium flex items-center justify-center h-10">3</div>
                                 
                                 <!-- 4 (금) -->
                                 <label class="relative flex items-center justify-center h-10 cursor-pointer">
-                                    <input type="radio" name="date" value="12월 4일(금)" class="peer sr-only">
-                                    <div class="w-10 h-10 rounded-full text-orbe-text hover:bg-orbe-gold/10 peer-checked:bg-orbe-gold peer-checked:text-white flex items-center justify-center font-bold transition-colors">4</div>
+                                    <input type="radio" name="date" value="12월 4일(금)" class="peer sr-only date-radio" data-day="fri">
+                                    <div class="w-10 h-10 rounded-full text-orbe-text flex items-center justify-center transition-colors peer-checked:bg-orbe-gold peer-checked:text-white hover:bg-orbe-gold/10">4</div>
                                 </label>
                                 
                                 <!-- 5 (토) -->
                                 <div class="relative flex flex-col items-center justify-center h-10">
                                     <span class="absolute top-1 right-2 w-[4px] h-[4px] bg-[#999999] rounded-full"></span>
-                                    <span class="text-[#999999] line-through decoration-[#999999]">5</span>
+                                    <span class="text-[#999999] font-medium line-through decoration-[#999999]">5</span>
                                     <span class="text-[0.6rem] font-bold text-[#666] absolute -bottom-1">마감</span>
                                 </div>
                                 
                                 <!-- 6 (일) -->
                                 <label class="relative flex items-center justify-center h-10 cursor-pointer">
-                                    <input type="radio" name="date" value="12월 6일(일)" class="peer sr-only" checked>
-                                    <div class="w-10 h-10 rounded-full text-orbe-text hover:bg-orbe-gold/10 peer-checked:bg-orbe-gold peer-checked:text-white flex items-center justify-center font-bold transition-colors">6</div>
-                                    <span class="absolute top-1 right-1.5 w-1.5 h-1.5 bg-[#E03131] rounded-full"></span>
+                                    <input type="radio" name="date" value="12월 6일(일)" class="peer sr-only date-radio" data-day="sun">
+                                    <div class="w-10 h-10 rounded-full text-orbe-text flex items-center justify-center transition-colors peer-checked:bg-orbe-gold peer-checked:text-white hover:bg-orbe-gold/10">6</div>
+                                    <span class="absolute top-1.5 right-1 w-[5px] h-[5px] bg-[#E03131] rounded-full"></span>
                                 </label>
                                 
-                                <div class="text-[#D1D1D1] flex items-center justify-center h-10">7</div>
-                                <div class="text-[#D1D1D1] flex items-center justify-center h-10">8</div>
-                                <div class="text-[#D1D1D1] flex items-center justify-center h-10">9</div>
-                                <div class="text-[#D1D1D1] flex items-center justify-center h-10">10</div>
+                                <div class="text-[#D1D1D1] font-medium flex items-center justify-center h-10">7</div>
+                                <div class="text-[#D1D1D1] font-medium flex items-center justify-center h-10">8</div>
+                                <div class="text-[#D1D1D1] font-medium flex items-center justify-center h-10">9</div>
+                                <div class="text-[#D1D1D1] font-medium flex items-center justify-center h-10">10</div>
                                 
                                 <!-- 11 (금) -->
                                 <label class="relative flex items-center justify-center h-10 cursor-pointer">
-                                    <input type="radio" name="date" value="12월 11일(금)" class="peer sr-only">
-                                    <div class="w-10 h-10 rounded-full text-orbe-text hover:bg-orbe-gold/10 peer-checked:bg-orbe-gold peer-checked:text-white flex items-center justify-center font-bold transition-colors">11</div>
+                                    <input type="radio" name="date" value="12월 11일(금)" class="peer sr-only date-radio" data-day="fri">
+                                    <div class="w-10 h-10 rounded-full text-orbe-text flex items-center justify-center transition-colors peer-checked:bg-orbe-gold peer-checked:text-white hover:bg-orbe-gold/10">11</div>
                                 </label>
                                 
                                 <!-- 12 (토) -->
                                 <label class="relative flex items-center justify-center h-10 cursor-pointer">
-                                    <input type="radio" name="date" value="12월 12일(토)" class="peer sr-only">
-                                    <div class="w-10 h-10 rounded-full text-orbe-text hover:bg-orbe-gold/10 peer-checked:bg-orbe-gold peer-checked:text-white flex items-center justify-center font-bold transition-colors">12</div>
+                                    <input type="radio" name="date" value="12월 12일(토)" class="peer sr-only date-radio" data-day="sat">
+                                    <div class="w-10 h-10 rounded-full text-orbe-text flex items-center justify-center transition-colors peer-checked:bg-orbe-gold peer-checked:text-white hover:bg-orbe-gold/10">12</div>
                                 </label>
                                 
                                 <!-- 13 (일) -->
                                 <label class="relative flex items-center justify-center h-10 cursor-pointer">
-                                    <input type="radio" name="date" value="12월 13일(일)" class="peer sr-only">
-                                    <div class="w-10 h-10 rounded-full text-orbe-text hover:bg-orbe-gold/10 peer-checked:bg-orbe-gold peer-checked:text-white flex items-center justify-center font-bold transition-colors">13</div>
+                                    <input type="radio" name="date" value="12월 13일(일)" class="peer sr-only date-radio" data-day="sun">
+                                    <div class="w-10 h-10 rounded-full text-orbe-text flex items-center justify-center transition-colors peer-checked:bg-orbe-gold peer-checked:text-white hover:bg-orbe-gold/10">13</div>
                                 </label>
                                 
-                                <div class="text-[#D1D1D1] flex items-center justify-center h-10">14</div>
-                                <div class="text-[#D1D1D1] flex items-center justify-center h-10">15</div>
-                                <div class="text-[#D1D1D1] flex items-center justify-center h-10">16</div>
-                                <div class="text-[#D1D1D1] flex items-center justify-center h-10">17</div>
+                                <div class="text-[#D1D1D1] font-medium flex items-center justify-center h-10">14</div>
+                                <div class="text-[#D1D1D1] font-medium flex items-center justify-center h-10">15</div>
+                                <div class="text-[#D1D1D1] font-medium flex items-center justify-center h-10">16</div>
+                                <div class="text-[#D1D1D1] font-medium flex items-center justify-center h-10">17</div>
                                 
                                 <!-- 18 (금) -->
                                 <label class="relative flex items-center justify-center h-10 cursor-pointer">
-                                    <input type="radio" name="date" value="12월 18일(금)" class="peer sr-only">
-                                    <div class="w-10 h-10 rounded-full text-orbe-text hover:bg-orbe-gold/10 peer-checked:bg-orbe-gold peer-checked:text-white flex items-center justify-center font-bold transition-colors">18</div>
+                                    <input type="radio" name="date" value="12월 18일(금)" class="peer sr-only date-radio" data-day="fri">
+                                    <div class="w-10 h-10 rounded-full text-orbe-text flex items-center justify-center transition-colors peer-checked:bg-orbe-gold peer-checked:text-white hover:bg-orbe-gold/10">18</div>
                                 </label>
                                 
                                 <!-- 19 (토) -->
                                 <label class="relative flex items-center justify-center h-10 cursor-pointer">
-                                    <input type="radio" name="date" value="12월 19일(토)" class="peer sr-only">
-                                    <div class="w-10 h-10 rounded-full text-orbe-text hover:bg-orbe-gold/10 peer-checked:bg-orbe-gold peer-checked:text-white flex items-center justify-center font-bold transition-colors">19</div>
+                                    <input type="radio" name="date" value="12월 19일(토)" class="peer sr-only date-radio" data-day="sat" checked>
+                                    <div class="w-10 h-10 rounded-full text-white bg-[#C29B57] peer-checked:bg-orbe-gold peer-checked:text-white flex items-center justify-center transition-colors shadow-sm">19</div>
                                 </label>
                                 
                                 <!-- 20 (일) -->
                                 <label class="relative flex items-center justify-center h-10 cursor-pointer">
-                                    <input type="radio" name="date" value="12월 20일(일)" class="peer sr-only">
-                                    <div class="w-10 h-10 rounded-full text-orbe-text hover:bg-orbe-gold/10 peer-checked:bg-orbe-gold peer-checked:text-white flex items-center justify-center font-bold transition-colors">20</div>
+                                    <input type="radio" name="date" value="12월 20일(일)" class="peer sr-only date-radio" data-day="sun">
+                                    <div class="w-10 h-10 rounded-full text-orbe-text flex items-center justify-center transition-colors peer-checked:bg-orbe-gold peer-checked:text-white hover:bg-orbe-gold/10">20</div>
                                 </label>
                                 
-                                <div class="text-[#D1D1D1] flex items-center justify-center h-10">21</div>
-                                <div class="text-[#D1D1D1] flex items-center justify-center h-10">22</div>
-                                <div class="text-[#D1D1D1] flex items-center justify-center h-10">23</div>
-                                <div class="text-[#D1D1D1] flex items-center justify-center h-10">24</div>
+                                <div class="text-[#D1D1D1] font-medium flex items-center justify-center h-10">21</div>
+                                <div class="text-[#D1D1D1] font-medium flex items-center justify-center h-10">22</div>
+                                <div class="text-[#D1D1D1] font-medium flex items-center justify-center h-10">23</div>
+                                <div class="text-[#D1D1D1] font-medium flex items-center justify-center h-10">24</div>
                                 
                                 <!-- 25 (금) -->
                                 <label class="relative flex items-center justify-center h-10 cursor-pointer">
-                                    <input type="radio" name="date" value="12월 25일(금)" class="peer sr-only">
-                                    <div class="w-10 h-10 rounded-full text-orbe-text hover:bg-orbe-gold/10 peer-checked:bg-orbe-gold peer-checked:text-white flex items-center justify-center font-bold transition-colors">25</div>
+                                    <input type="radio" name="date" value="12월 25일(금)" class="peer sr-only date-radio" data-day="fri">
+                                    <div class="w-10 h-10 rounded-full text-orbe-text flex items-center justify-center transition-colors peer-checked:bg-orbe-gold peer-checked:text-white hover:bg-orbe-gold/10">25</div>
                                 </label>
                                 
                                 <!-- 26 (토) -->
                                 <label class="relative flex items-center justify-center h-10 cursor-pointer">
-                                    <input type="radio" name="date" value="12월 26일(토)" class="peer sr-only">
-                                    <div class="w-10 h-10 rounded-full text-orbe-text hover:bg-orbe-gold/10 peer-checked:bg-orbe-gold peer-checked:text-white flex items-center justify-center font-bold transition-colors">26</div>
+                                    <input type="radio" name="date" value="12월 26일(토)" class="peer sr-only date-radio" data-day="sat">
+                                    <div class="w-10 h-10 rounded-full text-orbe-text flex items-center justify-center transition-colors peer-checked:bg-orbe-gold peer-checked:text-white hover:bg-orbe-gold/10">26</div>
                                 </label>
                                 
                                 <!-- 27 (일) -->
                                 <label class="relative flex items-center justify-center h-10 cursor-pointer">
-                                    <input type="radio" name="date" value="12월 27일(일)" class="peer sr-only">
-                                    <div class="w-10 h-10 rounded-full text-orbe-text hover:bg-orbe-gold/10 peer-checked:bg-orbe-gold peer-checked:text-white flex items-center justify-center font-bold transition-colors">27</div>
+                                    <input type="radio" name="date" value="12월 27일(일)" class="peer sr-only date-radio" data-day="sun">
+                                    <div class="w-10 h-10 rounded-full text-orbe-text flex items-center justify-center transition-colors peer-checked:bg-orbe-gold peer-checked:text-white hover:bg-orbe-gold/10">27</div>
                                 </label>
                                 
-                                <div class="text-[#D1D1D1] flex items-center justify-center h-10">28</div>
-                                <div class="text-[#D1D1D1] flex items-center justify-center h-10">29</div>
-                                <div class="text-[#D1D1D1] flex items-center justify-center h-10">30</div>
-                                <div class="text-[#D1D1D1] flex items-center justify-center h-10">31</div>
+                                <div class="text-[#D1D1D1] font-medium flex items-center justify-center h-10">28</div>
+                                <div class="text-[#D1D1D1] font-medium flex items-center justify-center h-10">29</div>
+                                <div class="text-[#D1D1D1] font-medium flex items-center justify-center h-10">30</div>
+                                <div class="text-[#D1D1D1] font-medium flex items-center justify-center h-10">31</div>
                             </div>
                             
                             <div class="mt-5 border border-orbe-gray rounded-xl py-3 text-center bg-[#FAFAFA]">
@@ -655,8 +649,9 @@
                         </div>
 
                         <!-- 회차(부) 선택 카드 -->
-                        <div class="space-y-3">
-                            <label class="cursor-pointer block relative">
+                        <div class="space-y-3" id="session-options">
+                            <!-- 금요일 옵션 (금요일 선택 시에만 보임) -->
+                            <label class="cursor-pointer block relative session-item fri-session hidden">
                                 <input type="radio" name="session" value="금요일 (19:00~21:00)" class="sr-only">
                                 <div class="session-card flex items-center justify-between p-5 rounded-[16px] border border-orbe-gray transition-colors bg-white">
                                     <div>
@@ -669,11 +664,12 @@
                                 </div>
                             </label>
                             
-                            <label class="cursor-pointer block relative">
+                            <!-- 주말 옵션 (토/일 선택 시에만 보임) -->
+                            <label class="cursor-pointer block relative session-item weekend-session">
                                 <input type="radio" name="session" value="주말 1부 (14:00~16:00)" class="sr-only" checked>
                                 <div class="session-card flex items-center justify-between p-5 rounded-[16px] border border-orbe-gray transition-colors bg-white">
                                     <div>
-                                        <p class="text-[1.05rem] font-bold text-orbe-text mb-1">주말 1부 (14:00 ~ 16:00)</p>
+                                        <p class="text-[1.05rem] font-bold text-orbe-text mb-1">1부 (14:00 ~ 16:00)</p>
                                         <p class="text-[0.85rem] text-orbe-text/60 font-medium">남 34,000원 / 여 30,400원</p>
                                     </div>
                                     <div class="radio-outer w-6 h-6 rounded-full border border-orbe-gray bg-white relative transition-colors">
@@ -682,11 +678,11 @@
                                 </div>
                             </label>
                             
-                            <label class="cursor-pointer block relative">
+                            <label class="cursor-pointer block relative session-item weekend-session">
                                 <input type="radio" name="session" value="주말 2부 (17:00~19:00)" class="sr-only">
                                 <div class="session-card flex items-center justify-between p-5 rounded-[16px] border border-orbe-gray transition-colors bg-white">
                                     <div>
-                                        <p class="text-[1.05rem] font-bold text-orbe-text mb-1">주말 2부 (17:00 ~ 19:00)</p>
+                                        <p class="text-[1.05rem] font-bold text-orbe-text mb-1">2부 (17:00 ~ 19:00)</p>
                                         <p class="text-[0.85rem] text-orbe-text/60 font-medium">남 34,000원 / 여 30,400원</p>
                                     </div>
                                     <div class="radio-outer w-6 h-6 rounded-full border border-orbe-gray bg-white relative transition-colors">
@@ -718,7 +714,7 @@
                             <label class="flex-1 cursor-pointer">
                                 <input type="radio" name="gender" value="남성" class="peer sr-only" required>
                                 <div class="py-3 rounded-lg border border-orbe-gray bg-white text-center text-sm font-medium text-orbe-text/60 peer-checked:bg-orbe-gold peer-checked:text-white peer-checked:border-orbe-gold transition-colors">남성</div>
-            </label>
+                            </label>
                             <label class="flex-1 cursor-pointer">
                                 <input type="radio" name="gender" value="여성" class="peer sr-only">
                                 <div class="py-3 rounded-lg border border-orbe-gray bg-white text-center text-sm font-medium text-orbe-text/60 peer-checked:bg-orbe-gold peer-checked:text-white peer-checked:border-orbe-gold transition-colors">여성</div>
@@ -777,11 +773,17 @@
 
                     <!-- 안내사항 동의 -->
                     <div class="pt-4">
-                        <label class="block text-sm font-bold text-orbe-text mb-2">(필수) 신청 전 필수 안내사항</label>
+                        <label class="block text-lg font-bold text-orbe-text mb-3">(필수) 신청 전 필수 안내사항</label>
                         
-                        <div class="bg-white border border-orbe-gray rounded-lg p-4 h-48 overflow-y-auto text-[0.75rem] text-orbe-text/80 space-y-4 mb-3 hide-scrollbar leading-relaxed shadow-inner">
-                            <div><p class="font-bold text-orbe-text mb-1">1. 본인 및 직장 확인 (신분증/증빙자료 필수)</p><p>현장에서 신분증과 직장 증빙(명함, 사원증 등) 확인이 진행되며, 신청 정보와 다를 경우 즉시 귀가 조치됩니다.</p></div>
-                            <div><p class="font-bold text-orbe-text mb-1">2. 환불 및 일정 변경 안내</p><p>파티일 기준 5일 전까지만 환불 및 변경이 가능합니다.</p></div>
+                        <div class="bg-white border border-orbe-gray rounded-lg p-5 h-56 overflow-y-auto text-[0.8rem] text-orbe-text/80 space-y-5 mb-3 hide-scrollbar leading-relaxed shadow-sm">
+                            <div>
+                                <p class="font-bold text-orbe-text text-[0.85rem] mb-1">1. 본인 및 직장 확인 (신분증/증빙자료 필수)</p>
+                                <p>현장에서 신분증과 직장 증빙(명함, 사원증 등) 확인이 진행되며, 신청 정보와 다를 경우 즉시 귀가 조치됩니다.</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-orbe-text text-[0.85rem] mb-1">2. 환불 및 일정 변경 안내</p>
+                                <p>파티일 기준 5일 전까지만 환불 및 변경이 가능합니다.</p>
+                            </div>
                         </div>
 
                         <button type="button" class="w-full py-3 rounded-lg border border-orbe-gold bg-orbe-gold/5 text-sm font-bold text-orbe-gold transition-colors">
@@ -879,7 +881,7 @@
         </div>
     </div>
 
-    <!-- 구글 시트 전송 스크립트 및 애니메이션 -->
+    <!-- 구글 시트 전송 스크립트 및 캘린더 로직 -->
     <script>
         // Scroll Animation
         document.addEventListener('DOMContentLoaded', () => {
@@ -899,6 +901,47 @@
 
             window.addEventListener('scroll', revealOnScroll);
             revealOnScroll();
+            
+            // 캘린더 요일별 회차 연동 로직
+            const dateRadios = document.querySelectorAll('.date-radio');
+            const friSessions = document.querySelectorAll('.fri-session');
+            const weekendSessions = document.querySelectorAll('.weekend-session');
+            const allSessionRadios = document.querySelectorAll('input[name="session"]');
+            
+            // 초기 세팅 (체크된 날짜에 맞게 보이기)
+            updateSessions();
+
+            dateRadios.forEach(radio => {
+                radio.addEventListener('change', updateSessions);
+            });
+
+            function updateSessions() {
+                const checkedRadio = document.querySelector('.date-radio:checked');
+                if(!checkedRadio) return;
+                
+                const dayType = checkedRadio.getAttribute('data-day');
+                
+                // 모든 세션 라디오 버튼 체크 해제
+                allSessionRadios.forEach(radio => radio.checked = false);
+
+                if (dayType === 'fri') {
+                    // 주말 숨기고 금요일 보이기
+                    weekendSessions.forEach(el => el.classList.add('hidden'));
+                    friSessions.forEach(el => {
+                        el.classList.remove('hidden');
+                        // 금요일 옵션 자동 선택
+                        el.querySelector('input').checked = true; 
+                    });
+                } else {
+                    // 금요일 숨기고 주말 보이기
+                    friSessions.forEach(el => el.classList.add('hidden'));
+                    weekendSessions.forEach(el => el.classList.remove('hidden'));
+                    // 주말 첫번째 옵션 자동 선택
+                    if(weekendSessions.length > 0) {
+                        weekendSessions[0].querySelector('input').checked = true;
+                    }
+                }
+            }
         });
 
         // Privacy Modal Logic
