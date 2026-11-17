@@ -874,107 +874,108 @@
         </div>
     </div>
 
-    <!-- 스크립트 모음 -->
-    <script>
-        // 1. Scroll Animation
-        document.addEventListener('DOMContentLoaded', () => {
-            const reveals = document.querySelectorAll('.reveal');
-            const revealOnScroll = () => {
-                const windowHeight = window.innerHeight;
-                const elementVisible = 100;
-                reveals.forEach((reveal) => {
-                    const elementTop = reveal.getBoundingClientRect().top;
-                    if (elementTop < windowHeight - elementVisible) {
-                        reveal.classList.add('active');
-                    }
-                });
-            };
-            window.addEventListener('scroll', revealOnScroll);
-            revealOnScroll();
-        });
-
-        // 2. Privacy Modal Logic
-        const modal = document.getElementById('privacy-modal');
-        const modalContent = modal.querySelector('div');
-        function openPrivacyModal() {
-            modal.classList.remove('hidden');
-            void modal.offsetWidth;
-            modal.classList.remove('opacity-0');
-            modalContent.classList.remove('translate-y-4');
-        }
-        function closePrivacyModal() {
-            modal.classList.add('opacity-0');
-            modalContent.classList.add('translate-y-4');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300);
-        }
-
-        // 3. Calendar Date <-> Session Display Logic
-        const dateRadios = document.querySelectorAll('input[name="date"]');
-        const sessionFriWrapper = document.getElementById('session-wrapper-fri');
-        const sessionWknd1Wrapper = document.getElementById('session-wrapper-wknd1');
-        const sessionWknd2Wrapper = document.getElementById('session-wrapper-wknd2');
-        const radioFri = document.getElementById('radio-fri');
-        const radioWknd1 = document.getElementById('radio-wknd1');
-
-        dateRadios.forEach(radio => {
-            radio.addEventListener('change', (e) => {
-                if (e.target.value.includes('금')) {
-                    // 금요일 선택 시
-                    sessionFriWrapper.style.display = 'block';
-                    sessionWknd1Wrapper.style.display = 'none';
-                    sessionWknd2Wrapper.style.display = 'none';
-                    radioFri.checked = true;
-                } else {
-                    // 토, 일 선택 시
-                    sessionFriWrapper.style.display = 'none';
-                    sessionWknd1Wrapper.style.display = 'block';
-                    sessionWknd2Wrapper.style.display = 'block';
-                    radioWknd1.checked = true;
+<!-- 구글 시트 전송 스크립트 및 애니메이션 -->
+<script>
+    // 1. Scroll Animation
+    document.addEventListener('DOMContentLoaded', () => {
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 100;
+            reveals.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
                 }
             });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+    });
+
+    // 2. Privacy Modal Logic
+    const modal = document.getElementById('privacy-modal');
+    const modalContent = modal.querySelector('div');
+    function openPrivacyModal() {
+        modal.classList.remove('hidden');
+        void modal.offsetWidth;
+        modal.classList.remove('opacity-0');
+        modalContent.classList.remove('translate-y-4');
+    }
+    function closePrivacyModal() {
+        modal.classList.add('opacity-0');
+        modalContent.classList.add('translate-y-4');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 300);
+    }
+
+    // 3. Calendar Date <-> Session Display Logic
+    const dateRadios = document.querySelectorAll('input[name="date"]');
+    const sessionFriWrapper = document.getElementById('session-wrapper-fri');
+    const sessionWknd1Wrapper = document.getElementById('session-wrapper-wknd1');
+    const sessionWknd2Wrapper = document.getElementById('session-wrapper-wknd2');
+    const radioFri = document.getElementById('radio-fri');
+    const radioWknd1 = document.getElementById('radio-wknd1');
+
+    dateRadios.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            if (e.target.value.includes('금')) {
+                // 금요일 선택 시
+                sessionFriWrapper.style.display = 'block';
+                sessionWknd1Wrapper.style.display = 'none';
+                sessionWknd2Wrapper.style.display = 'none';
+                radioFri.checked = true;
+            } else {
+                // 토, 일 선택 시
+                sessionFriWrapper.style.display = 'none';
+                sessionWknd1Wrapper.style.display = 'block';
+                sessionWknd2Wrapper.style.display = 'block';
+                radioWknd1.checked = true;
+            }
         });
+    });
 
-        // 4. Form Submit to Google Sheets
-        const form = document.getElementById('orbe-form');
-        const submitBtn = document.getElementById('submitBtn');
+    // 4. Form Submit to Google Sheets
+    const form = document.getElementById('orbe-form');
+    const submitBtn = document.getElementById('submitBtn');
 
-        form.addEventListener('submit', e => {
-            e.preventDefault(); 
-            
-            submitBtn.innerHTML = '신청 처리 중... ⏳';
-            submitBtn.disabled = true;
-            submitBtn.style.opacity = '0.7';
+    form.addEventListener('submit', e => {
+        e.preventDefault(); 
+        
+        submitBtn.innerHTML = '신청 처리 중... ⏳';
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.7';
 
-            const formData = new FormData(form);
+        const formData = new FormData(form);
 
-            // ★ 이전에 발급받으신 웹 앱 URL을 여기에 붙여넣으세요! ★
-            const scriptURL = 'https://script.google.com/macros/s/여기에_본인의_URL_입력/exec';
+        // ★ 이전에 발급받으신 웹 앱 URL을 여기에 붙여넣으세요! ★
+        const scriptURL = 'https://script.google.com/macros/s/여기에_본인의_URL_입력/exec';
 
-            fetch(scriptURL, { method: 'POST', body: formData})
-                .then(response => {
-                    alert('신청이 성공적으로 완료되었습니다! 개별 연락 드릴 예정입니다.');
-                    form.reset(); 
-                    
-                    // 초기화 후 라디오 버튼 기본값 재설정
-                    sessionFriWrapper.style.display = 'none';
-                    sessionWknd1Wrapper.style.display = 'block';
-                    sessionWknd2Wrapper.style.display = 'block';
-                    radioWknd1.checked = true;
+        // 오류 해결을 위해 mode: 'no-cors'가 추가되었습니다.
+        fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors'})
+            .then(response => {
+                alert('신청이 성공적으로 완료되었습니다! 개별 연락 드릴 예정입니다.');
+                form.reset(); 
+                
+                // 초기화 후 라디오 버튼 기본값 재설정
+                sessionFriWrapper.style.display = 'none';
+                sessionWknd1Wrapper.style.display = 'block';
+                sessionWknd2Wrapper.style.display = 'block';
+                radioWknd1.checked = true;
 
-                    submitBtn.innerHTML = '신청하기';
-                    submitBtn.disabled = false;
-                    submitBtn.style.opacity = '1';
-                })
-                .catch(error => {
-                    alert('오류가 발생했습니다. 다시 시도해주세요.');
-                    console.error('Error!', error.message);
-                    submitBtn.innerHTML = '신청하기';
-                    submitBtn.disabled = false;
-                    submitBtn.style.opacity = '1';
-                });
-        });
-    </script>
+                submitBtn.innerHTML = '신청하기';
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+            })
+            .catch(error => {
+                alert('오류가 발생했습니다. 다시 시도해주세요.');
+                console.error('Error!', error.message);
+                submitBtn.innerHTML = '신청하기';
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+            });
+    });
+</script>
 </body>
 </html>
