@@ -526,16 +526,31 @@
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
                         </div>
                         <div class="w-full">
-                            <p class="text-[0.8rem] text-orbe-gold font-arial tracking-wider mb-1.5 font-bold">PRICE</p>
+                            <p class="text-[0.8rem] text-orbe-gold font-arial tracking-wider mb-2.5 font-bold">PRICE</p>
                             
-                            <div class="flex items-baseline gap-1.5 mb-1.5">
-                                <span class="text-[1.65rem] font-bold text-[#333333] tracking-tight">남 34,000원</span>
-                                <span class="text-[1.2rem] font-medium text-[#666666]">/</span>
-                                <span class="text-[1.65rem] font-bold text-[#333333] tracking-tight">여 30,400원</span>
+                            <!-- 소개팅 가격 -->
+                            <div class="mb-3">
+                                <span class="inline-block text-[0.65rem] font-bold text-[#9A7432] bg-[#F5ECD7] px-2 py-0.5 rounded mb-1.5">소개팅</span>
+                                <div class="flex items-baseline gap-1.5 mb-0.5 flex-wrap">
+                                    <span class="text-[1.45rem] font-bold text-[#333333] tracking-tight">남 34,000원</span>
+                                    <span class="text-[1.1rem] font-medium text-[#666666]">/</span>
+                                    <span class="text-[1.45rem] font-bold text-[#333333] tracking-tight">여 30,400원</span>
+                                </div>
+                                <p class="text-[0.85rem] text-[#999999] line-through decoration-[#999999]">남 40,000원 / 여 38,000원</p>
                             </div>
-                            <p class="text-[0.9rem] text-[#999999] line-through decoration-[#999999]">남 40,000원 / 여 38,000원</p>
+
+                            <!-- 파티 가격 (20% 할인) -->
+                            <div class="pt-3 border-t border-orbe-gray/70">
+                                <span class="inline-block text-[0.65rem] font-bold text-[#B84A4A] bg-[#FDE2E2] px-2 py-0.5 rounded mb-1.5">파티</span>
+                                <div class="flex items-baseline gap-1.5 mb-0.5 flex-wrap">
+                                    <span class="text-[1.45rem] font-bold text-[#333333] tracking-tight">남 41,600원</span>
+                                    <span class="text-[1.1rem] font-medium text-[#666666]">/</span>
+                                    <span class="text-[1.45rem] font-bold text-[#333333] tracking-tight">여 39,200원</span>
+                                </div>
+                                <p class="text-[0.85rem] text-[#999999] line-through decoration-[#999999]">남 52,000원 / 여 49,000원</p>
+                            </div>
                             
-                            <div class="bg-orbe-gold/10 rounded border border-orbe-gold/20 p-2.5 mt-3">
+                            <div class="bg-orbe-gold/10 rounded border border-orbe-gold/20 p-2.5 mt-3.5">
                                 <p class="text-[0.75rem] font-bold text-orbe-gold text-center">🎉 얼리버드 20% 할인 적용 중</p>
                             </div>
                         </div>
@@ -733,7 +748,7 @@
                         <input type="tel" name="phone" required class="w-full bg-orbe-bg border border-orbe-gray rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-orbe-gold transition-colors" placeholder="ex) 01011112222">
                     </div>
 
-                    <!-- 성별 (금액 계산용 로직 연동) -->
+                    <!-- 성별 -->
                     <div>
                         <label class="block text-sm font-bold text-orbe-text mb-2">성별</label>
                         <div class="flex gap-3">
@@ -965,7 +980,7 @@
             }, 300);
         }
 
-        // 4. Calendar Date <-> Session Dynamic Render Logic (소개팅 vs 파티 색상 구분)
+        // 4. Calendar Date <-> Session Dynamic Render Logic (소개팅 vs 파티 색상·가격 구분)
         const sessionOptionsByType = {
             'eve-dating': [
                 { label: '소개팅 19시 (19:00 ~ 21:00)', value: '소개팅 19시 (19:00~21:00)', kind: 'dating' }
@@ -1005,16 +1020,21 @@
                     ? 'is-party bg-[#FDF5F5] border-[#F0D4D4]'
                     : 'is-dating bg-[#FAF9F6] border-orbe-gray';
                 const badgeHtml = isParty
-                    ? '<span class="inline-block text-[0.65rem] font-bold text-[#B84A4A] bg-[#FDE2E2] px-2 py-0.5 rounded mr-1.5 align-middle">파티</span>'
-                    : '<span class="inline-block text-[0.65rem] font-bold text-[#9A7432] bg-[#F5ECD7] px-2 py-0.5 rounded mr-1.5 align-middle">소개팅</span>';
+                    ? '<span class="inline-block text-[0.65rem] font-bold text-[#B84A4A] bg-[#FDE2E2] px-2 py-0.5 rounded whitespace-nowrap shrink-0">파티</span>'
+                    : '<span class="inline-block text-[0.65rem] font-bold text-[#9A7432] bg-[#F5ECD7] px-2 py-0.5 rounded whitespace-nowrap shrink-0">소개팅</span>';
+                const priceHtml = isParty
+                    ? '남 41,600원 / 여 39,200원 <span class="text-[0.72rem] text-[#999999] line-through ml-1">52,000 / 49,000</span>'
+                    : '남 34,000원 / 여 30,400원';
 
                 return `
                     <label class="cursor-pointer block relative">
-                        <input type="radio" name="session" value="${opt.value}" class="sr-only" ${idx === 0 ? 'checked' : ''} required>
-                        <div class="session-card flex items-center justify-between p-5 rounded-[16px] border transition-colors ${cardStyle}">
-                            <div>
-                                <p class="text-[1.05rem] font-bold text-orbe-text mb-1.5 flex items-center">${badgeHtml}<span>${opt.label}</span></p>
-                                <p class="text-[0.85rem] text-[#666666] font-medium">남 34,000원 / 여 30,400원</p>
+                        <input type="radio" name="session" value="${opt.value}" data-kind="${opt.kind}" class="sr-only" ${idx === 0 ? 'checked' : ''} required>
+                        <div class="session-card flex items-center justify-between gap-2 p-4 rounded-[16px] border transition-colors ${cardStyle}">
+                            <div class="min-w-0">
+                                <p class="text-[0.95rem] font-bold text-orbe-text mb-1.5 flex items-center gap-1.5 flex-nowrap">
+                                    ${badgeHtml}<span class="whitespace-nowrap">${opt.label}</span>
+                                </p>
+                                <p class="text-[0.82rem] text-[#666666] font-medium">${priceHtml}</p>
                             </div>
                             <div class="radio-outer w-6 h-6 rounded-full border border-orbe-gray bg-white relative transition-colors shrink-0">
                                 <div class="radio-inner absolute inset-[4px] rounded-full opacity-0 transition-opacity"></div>
@@ -1031,25 +1051,26 @@
             });
         });
 
-        // 5. Dynamic Pricing based on Gender
-        let finalPriceText = "34,000"; // 기본값
-        const genderRadios = document.querySelectorAll('input[name="gender"]');
-        genderRadios.forEach(radio => {
-            radio.addEventListener('change', (e) => {
-                if(e.target.value === '남성') {
-                    finalPriceText = "34,000";
-                } else if(e.target.value === '여성') {
-                    finalPriceText = "30,400";
-                }
-            });
-        });
+        // 5. Dynamic Pricing based on Session Kind & Gender
+        function getCalculatedPrice() {
+            const selectedSession = document.querySelector('input[name="session"]:checked');
+            const selectedGender = document.querySelector('input[name="gender"]:checked');
+            const isParty = selectedSession && selectedSession.dataset.kind === 'party';
+            const isFemale = selectedGender && selectedGender.value === '여성';
+
+            if (isParty) {
+                return isFemale ? "39,200" : "41,600";
+            } else {
+                return isFemale ? "30,400" : "34,000";
+            }
+        }
 
         // 6. Payment Modal Logic & Copy Function
         const paymentModal = document.getElementById('payment-modal');
         const paymentModalContent = paymentModal.querySelector('div');
 
         function openPaymentModal() {
-            document.getElementById('final-price-display').innerText = finalPriceText + "원";
+            document.getElementById('final-price-display').innerText = getCalculatedPrice() + "원";
             
             paymentModal.classList.remove('hidden');
             void paymentModal.offsetWidth;
@@ -1097,7 +1118,6 @@
                     
                     // 초기화 복구
                     sessionContainer.innerHTML = defaultSessionPlaceholder;
-                    finalPriceText = "34,000"; 
 
                     submitBtn.innerHTML = '신청하기';
                     submitBtn.disabled = false;
