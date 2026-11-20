@@ -545,9 +545,9 @@
                                 <div class="flex items-baseline gap-1.5 mb-0.5 flex-wrap">
                                     <span class="text-[1.45rem] font-bold text-[#333333] tracking-tight">남 41,600원</span>
                                     <span class="text-[1.1rem] font-medium text-[#666666]">/</span>
-                                    <span class="text-[1.45rem] font-bold text-[#333333] tracking-tight">여 39,200원</span>
+                                    <span class="text-[1.45rem] font-bold text-[#333333] tracking-tight">여 38,400원</span>
                                 </div>
-                                <p class="text-[0.85rem] text-[#999999] line-through decoration-[#999999]">남 52,000원 / 여 49,000원</p>
+                                <p class="text-[0.85rem] text-[#999999] line-through decoration-[#999999]">남 52,000원 / 여 48,000원</p>
                             </div>
                             
                             <div class="bg-orbe-gold/10 rounded border border-orbe-gold/20 p-2.5 mt-3.5">
@@ -823,7 +823,7 @@
                             </div>
                             <div>
                                 <p class="font-bold text-orbe-text mb-1">2. 환불 및 일정 변경 안내</p>
-                                <p class="text-[0.75rem]">환불 및 일정 변경은 파티일 기준 5일 전까지 가능합니다. 이후에는 환불 및 변경이 불가능합니다. (당일 환불 불가)<br>※ 날짜 변경은 파티일 5일 전까지 1회만 가능</p>
+                                <p class="text-[0.75rem]">환불은 일정일 기준 1주일(7일) 전까지만 가능합니다. 이후에는 환불이 불가능합니다. (당일 환불 불가)<br>※ 일정 변경은 1회에 한하여 가능합니다.</p>
                             </div>
                             <div>
                                 <p class="font-bold text-orbe-text mb-1">3. 촬영 안내</p>
@@ -1022,9 +1022,12 @@
                 const badgeHtml = isParty
                     ? '<span class="inline-block text-[0.65rem] font-bold text-[#B84A4A] bg-[#FDE2E2] px-2 py-0.5 rounded whitespace-nowrap shrink-0">파티</span>'
                     : '<span class="inline-block text-[0.65rem] font-bold text-[#9A7432] bg-[#F5ECD7] px-2 py-0.5 rounded whitespace-nowrap shrink-0">소개팅</span>';
-                const priceHtml = isParty
-                    ? '남 41,600원 / 여 39,200원 <span class="text-[0.72rem] text-[#999999] line-through ml-1">52,000 / 49,000</span>'
+                const discountedPrice = isParty
+                    ? '남 41,600원 / 여 38,400원'
                     : '남 34,000원 / 여 30,400원';
+                const originalPrice = isParty
+                    ? '남 52,000원 / 여 48,000원'
+                    : '남 40,000원 / 여 38,000원';
 
                 return `
                     <label class="cursor-pointer block relative">
@@ -1034,7 +1037,8 @@
                                 <p class="text-[0.95rem] font-bold text-orbe-text mb-1.5 flex items-center gap-1.5 flex-nowrap">
                                     ${badgeHtml}<span class="whitespace-nowrap">${opt.label}</span>
                                 </p>
-                                <p class="text-[0.82rem] text-[#666666] font-medium">${priceHtml}</p>
+                                <p class="text-[0.82rem] text-[#666666] font-medium">${discountedPrice}</p>
+                                <p class="text-[0.72rem] text-[#999999] line-through mt-0.5">${originalPrice}</p>
                             </div>
                             <div class="radio-outer w-6 h-6 rounded-full border border-orbe-gray bg-white relative transition-colors shrink-0">
                                 <div class="radio-inner absolute inset-[4px] rounded-full opacity-0 transition-opacity"></div>
@@ -1059,7 +1063,7 @@
             const isFemale = selectedGender && selectedGender.value === '여성';
 
             if (isParty) {
-                return isFemale ? "39,200" : "41,600";
+                return isFemale ? "38,400" : "41,600";
             } else {
                 return isFemale ? "30,400" : "34,000";
             }
